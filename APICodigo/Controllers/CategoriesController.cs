@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APICodigo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace APICodigo.Controllers
 {
@@ -20,6 +21,8 @@ namespace APICodigo.Controllers
             _context = context;
         }
 
+
+        [Authorize]
         // GET: api/Categories
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
